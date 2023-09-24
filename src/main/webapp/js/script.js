@@ -1,8 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    updateTable();
-});
-
-
 function checkAndSendData(mouse, mouseX, mouseY) {
 
     let isValid = true;
@@ -82,6 +77,8 @@ function checkAndSendData(mouse, mouseX, mouseY) {
                 //
                 // console.log('Server response: ' + data);
 
+                window.location.replace("result_page.jsp");
+
                 console.log("SUCCESS!!!!!!!")
             })
             .catch(error => {
@@ -90,27 +87,3 @@ function checkAndSendData(mouse, mouseX, mouseY) {
     }
 }
 
-function updateTable() {
-    clearTable();
-
-    let resultTable = document.getElementById("result-table");
-    let tableStorage = localStorage.getItem("resultTable");
-
-    if (tableStorage){
-        let rows = tableStorage.split(",");
-        rows.forEach(row => resultTable.insertAdjacentHTML('beforeend', row));
-    }
-}
-
-function clearTable() {
-    let resultTable = document.getElementById('result-table')
-
-    while (resultTable.rows.length > 1) {
-        resultTable.deleteRow(1);
-    }
-}
-
-function removeTable() {
-    localStorage.removeItem("resultTable");
-    clearTable();
-}

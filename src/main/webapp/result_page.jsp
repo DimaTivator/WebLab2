@@ -4,6 +4,13 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>RESULT PAGE</h1>
+    <div id="result_table">
+        <jsp:include page="result_table.jsp" />
+    </div>
+    <div class="form">
+        <form method="get" action="index.jsp">
+            <input type="submit" value='Back' >
+        </form>
+    </div>
 </body>
 </html>

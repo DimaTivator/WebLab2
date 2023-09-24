@@ -1,5 +1,6 @@
 <%@ page import="com.weblab2.beans.Raw" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" type="text/css" href="css/result_table.css">
 <table id="result_table" class="results">
     <jsp:useBean id="table" class="com.weblab2.beans.RawBean" scope="session"/>
     <thead>

@@ -33,7 +33,7 @@ window.onload = function() {
 
     function mouseDownHandler(event) {
         console.log("clicked")
-        if (mouse.inChart) {
+        if (mouse.inChart && getSelectedR() != null) {
             //let cartesianX = (mouse.x - width / 2) / (R / 2)
             //let cartesianY = (-mouse.y + height / 2) / (R / 2)
             let cartesianX = (mouse.x - width / 2) / 50
@@ -255,5 +255,16 @@ window.onload = function() {
         const selectedValue = event.target.value
         R = 25 * selectedValue
         update()
+    }
+
+    function getSelectedR() {
+        let selectedR = null;
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                selectedR = radioButtons[i].value;
+                break;
+            }
+        }
+        return selectedR;
     }
 }

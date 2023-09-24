@@ -78,24 +78,8 @@
     height: 250px;
 }
 
-.table-mike-container {
-    display: flex;
-    margin-top: 20px;
-}
-
 .table-container {
     flex-grow: 1;
-}
-
-table {
-    width: 53%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    text-align: center;
 }
 
 ::selection {

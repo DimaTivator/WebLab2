@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <title>Web Lab1</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/result_table.css">
     <script src="js/script.js"></script>
     <script src="js/chart.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
 </head>
 <body>
 <div id="container">
@@ -59,7 +60,7 @@
             </div>
             <div id="buttons-container">
                 <button id="check_button" onclick="checkAndSendData(false, null, null)">Check</button>
-                <button id="clear_button" onclick="removeTable()">Clear</button>
+                <!-- <button id="clear_button" onclick="removeTable()">Clear</button> -->
             </div>
         </div>
     </div>
