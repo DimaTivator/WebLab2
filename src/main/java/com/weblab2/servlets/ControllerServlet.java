@@ -14,15 +14,15 @@ public class ControllerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("GET REQUEST HAS BEEN MADE TO /control " + req.getParameter("x") + " " +
-                req.getParameter("y") + " " + req.getParameter("r"));
+        //System.out.println("GET REQUEST HAS BEEN MADE TO /control " + req.getParameter("x") + " " +
+        //        req.getParameter("y") + " " + req.getParameter("r"));
 
         if(req.getParameter("x") != null && req.getParameter("y") != null && req.getParameter("r") != null) {
-            System.out.println("GO TO AREA CHECK");
+            //System.out.println("GO TO AREA CHECK");
             getServletContext().getNamedDispatcher("AreaCheckServlet").forward(req, resp);
         }
         else if (req.getParameter("clear") != null){
-            System.out.println("GO TO main.jsp");
+            //System.out.println("GO TO main.jsp");
             RawBean beans = (RawBean) req.getSession().getAttribute("table");
             if (beans == null) beans = new RawBean();
             beans.getRaws().clear();
@@ -30,7 +30,7 @@ public class ControllerServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/main.jsp").forward(req, resp);
         }
         else {
-            System.out.println("ELSE GO TO JSP");
+            //System.out.println("ELSE GO TO JSP");
             getServletContext().getRequestDispatcher("/main.jsp").forward(req, resp);
         }
     }

@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
-@WebServlet(name = "AreaCheckServlet", value = "/check")
+@WebServlet(name = "AreaCheckServlet", urlPatterns = {})
 public class AreaCheckServlet extends HttpServlet {
 
     private final DecimalFormat df = new DecimalFormat("#.###");
@@ -64,7 +64,7 @@ public class AreaCheckServlet extends HttpServlet {
                 raws = new RawBean();
             }
 
-            System.out.println("AREA CHECK " + xValue + " " + yValue + " " + rValue + " " + isInArea(xValue, yValue, rValue));
+            //System.out.println("AREA CHECK " + xValue + " " + yValue + " " + rValue + " " + isInArea(xValue, yValue, rValue));
 
             Raw raw = new Raw(xValue, yValue, rValue, formattedTime, executionTime, isInArea(xValue, yValue, rValue));
             raws.getRaws().add(raw);
@@ -74,7 +74,7 @@ public class AreaCheckServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/result_page.jsp").forward(req, resp);
         }
         catch (InvalidDataException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             req.setAttribute("error_message", e.getMessage());
             getServletContext().getRequestDispatcher("/invalid_data.jsp").forward(req, resp);
         }
@@ -101,7 +101,7 @@ public class AreaCheckServlet extends HttpServlet {
         try {
             parsedX = Double.parseDouble(x.trim());
             if (!isValidX(parsedX)) {
-                System.out.println("Invalid X: " + parsedX);
+                //System.out.println("Invalid X: " + parsedX);
                 throw new InvalidDataException("X is out of bounds");
             }
         }
@@ -117,7 +117,7 @@ public class AreaCheckServlet extends HttpServlet {
         try {
             parsedY = Double.parseDouble(y.trim());
             if (!isValidY(parsedY)) {
-                System.out.println("Invalid Y: " + parsedY);
+                //System.out.println("Invalid Y: " + parsedY);
                 throw new InvalidDataException("Y is out of bounds");
             }
         }
@@ -133,7 +133,7 @@ public class AreaCheckServlet extends HttpServlet {
         try {
             parsedR = Double.parseDouble(r.trim());
             if (!isValidR(parsedR)) {
-                System.out.println("Invalid R: " + parsedR);
+                //System.out.println("Invalid R: " + parsedR);
                 throw new InvalidDataException("R is out of bounds");
             }
         }

@@ -137,16 +137,16 @@ window.onload = function() {
 
         // points
 
-        drawPoint(context, width / 2, height / 2, 5, 'black')
+        drawPoint(context, width / 2, height / 2, 3, 'black')
 
-        drawPoint(context, width / 2 - R, height / 2, 5, 'black')
-        drawPoint(context, width / 2 - R * 2, height / 2, 5, 'black')
-        drawPoint(context, width / 2 + R, height / 2, 5, 'black')
-        drawPoint(context, width / 2 + R * 2, height / 2, 5, 'black')
-        drawPoint(context, width / 2, height / 2 - R, 5, 'black')
-        drawPoint(context, width / 2, height / 2 - R * 2, 5, 'black')
-        drawPoint(context, width / 2, height / 2 + R, 5, 'black')
-        drawPoint(context, width / 2, height / 2 + R * 2, 5, 'black')
+        drawPoint(context, width / 2 - R, height / 2, 3, 'black')
+        drawPoint(context, width / 2 - R * 2, height / 2, 3, 'black')
+        drawPoint(context, width / 2 + R, height / 2, 3, 'black')
+        drawPoint(context, width / 2 + R * 2, height / 2, 3, 'black')
+        drawPoint(context, width / 2, height / 2 - R, 3, 'black')
+        drawPoint(context, width / 2, height / 2 - R * 2, 3, 'black')
+        drawPoint(context, width / 2, height / 2 + R, 3, 'black')
+        drawPoint(context, width / 2, height / 2 + R * 2, 3, 'black')
 
 
         points.forEach(point => {
@@ -266,5 +266,32 @@ window.onload = function() {
             }
         }
         return selectedR;
+    }
+
+    drawPointsOnLoad();
+
+    function drawPointsOnLoad() {
+        let table = document.getElementById("result_table");
+        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+            let x = rows[i].getElementsByClassName("x")[0].textContent;
+            let y = rows[i].getElementsByClassName("y")[0].textContent;
+            x = x * 50 + width / 2;
+            y = -y * 50 + height / 2;
+            points.push([x, y]);
+        }
+
+        R = rows[rows.length - 1].getElementsByClassName("r")[0].textContent * 25;
+
+        let radioButtons = document.getElementsByName("r_button");
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].value === (R / 25).toString()) {
+                radioButtons[i].checked = true;
+                break;
+            }
+        }
+
+        draw(chartColor);
     }
 }
